@@ -1,0 +1,28 @@
+{
+  "name": "bots",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "ffmpeg-binaries": "^3.2.2-3",
+    "mysql": "^2.15.0",
+    "opusscript": "^0.0.6",
+    "spotify-web-api-node": "^2.5.0",
+    "youtube-audio-stream": "^0.0.50"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "start",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tenasow/discordbotjs.git"
+  },
+  "author": "Tenasow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tenasow/discordbotjs/issues"
+  },
+  "homepage": "https://github.com/tenasow/discordbotjs#readme"
+}
