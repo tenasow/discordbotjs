@@ -4,7 +4,6 @@ const Discord = require("discord.js"),
       db = require('./db.js'),
       config = require('./config.js');
 
-console.log(config.clientkey);
 client.login(config.clientkey);
 
 { //variables on start
