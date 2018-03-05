@@ -2,7 +2,9 @@ const Discord = require("discord.js"),
       client = new Discord.Client(),
       profanitylist = require('profanity.json'),
       db = require('./db.js'),
-      config = require('./config.js');
+      config = require('./config.js'),
+      SpotifyWebApi = require('spotify-web-api-node');
+
 
 client.login(config.clientkey);
 
@@ -35,11 +37,23 @@ client.login(config.clientkey);
     'It is important to draw wisdom from different places. If you take it from only one place it become rigid and stale.',
   ]
   var irohArrayDone = [];
+  var spotifyApi = new SpotifyWebApi({
+  clientId : config.spotifyclient,
+  clientSecret : config.spotifykey,
+  redirectUri : 'http://topkek.dk:5000'
+  });
 }
 
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+
+  spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+  .then(function(data) {
+    console.log('Artist albums', data.body);
+  }, function(err) {
+    console.error(err);
+  });
 
   //get banned users
   db.query("select * from banned", function (error, results, fields) {
@@ -57,11 +71,7 @@ client.on('ready', () => {
     }
   });
 
-
-
   guildsArray = client.guilds.array();
-
-
 
   for (var i in guildsArray) {
     emojisArray += guildsArray[i].emojis.array();
